@@ -1,0 +1,134 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "source": [
+    "# aflow duke university\n",
+    "https://rosenbrockc.github.io/aflow/\n"
+   ],
+   "metadata": {
+    "collapsed": false
+   },
+   "id": "e1cfedb6ed7646bf"
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "outputs": [
+    {
+     "ename": "HTTPError",
+     "evalue": "HTTP Error 500: Internal Privoxy Error",
+     "output_type": "error",
+     "traceback": [
+      "\u001B[0;31m---------------------------------------------------------------------------\u001B[0m",
+      "\u001B[0;31mHTTPError\u001B[0m                                 Traceback (most recent call last)",
+      "Cell \u001B[0;32mIn[1], line 8\u001B[0m\n\u001B[1;32m      3\u001B[0m result \u001B[38;5;241m=\u001B[39m search(batch_size\u001B[38;5;241m=\u001B[39m\u001B[38;5;241m20\u001B[39m\n\u001B[1;32m      4\u001B[0m         )\u001B[38;5;241m.\u001B[39mselect(K\u001B[38;5;241m.\u001B[39magl_thermal_conductivity_300K\n\u001B[1;32m      5\u001B[0m         )\u001B[38;5;241m.\u001B[39mfilter(K\u001B[38;5;241m.\u001B[39mEgap \u001B[38;5;241m>\u001B[39m \u001B[38;5;241m6\u001B[39m)\u001B[38;5;241m.\u001B[39morderby(K\u001B[38;5;241m.\u001B[39magl_thermal_conductivity_300K, \u001B[38;5;28;01mTrue\u001B[39;00m)\n\u001B[1;32m      7\u001B[0m \u001B[38;5;66;03m# Now, you can just iterate over the results.\u001B[39;00m\n\u001B[0;32m----> 8\u001B[0m \u001B[38;5;28;01mfor\u001B[39;00m entry \u001B[38;5;129;01min\u001B[39;00m result:\n\u001B[1;32m      9\u001B[0m     \u001B[38;5;28mprint\u001B[39m(entry\u001B[38;5;241m.\u001B[39mEgap)\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:251\u001B[0m, in \u001B[0;36mQuery.__next__\u001B[0;34m(self)\u001B[0m\n\u001B[1;32m    248\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mreverse:\n\u001B[1;32m    249\u001B[0m     n \u001B[38;5;241m*\u001B[39m\u001B[38;5;241m=\u001B[39m \u001B[38;5;241m-\u001B[39m\u001B[38;5;241m1\u001B[39m\n\u001B[0;32m--> 251\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_iter \u001B[38;5;241m<\u001B[39m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mmax_N\u001B[49m \u001B[38;5;129;01mand\u001B[39;00m n \u001B[38;5;129;01mnot\u001B[39;00m \u001B[38;5;129;01min\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mresponses:\n\u001B[1;32m    252\u001B[0m     \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_n \u001B[38;5;241m=\u001B[39m \u001B[38;5;28mabs\u001B[39m(n)\n\u001B[1;32m    253\u001B[0m     \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_request(\u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mn, \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mk)\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:103\u001B[0m, in \u001B[0;36mQuery.max_N\u001B[0;34m(self)\u001B[0m\n\u001B[1;32m    100\u001B[0m \u001B[38;5;250m\u001B[39m\u001B[38;5;124;03m\"\"\"Returns the maximum integer index that will be reached by this query.\u001B[39;00m\n\u001B[1;32m    101\u001B[0m \u001B[38;5;124;03m\"\"\"\u001B[39;00m\n\u001B[1;32m    102\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_max_entry \u001B[38;5;129;01mis\u001B[39;00m \u001B[38;5;28;01mNone\u001B[39;00m:\n\u001B[0;32m--> 103\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mN\u001B[49m\n\u001B[1;32m    104\u001B[0m \u001B[38;5;28;01melse\u001B[39;00m:\n\u001B[1;32m    105\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_max_entry\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:95\u001B[0m, in \u001B[0;36mQuery.N\u001B[0;34m(self)\u001B[0m\n\u001B[1;32m     92\u001B[0m \u001B[38;5;129m@property\u001B[39m\n\u001B[1;32m     93\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21mN\u001B[39m(\u001B[38;5;28mself\u001B[39m):\n\u001B[1;32m     94\u001B[0m     \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_N \u001B[38;5;129;01mis\u001B[39;00m \u001B[38;5;28;01mNone\u001B[39;00m:\n\u001B[0;32m---> 95\u001B[0m         \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_request\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mn\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mk\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m     96\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_N\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:148\u001B[0m, in \u001B[0;36mQuery._request\u001B[0;34m(self, n, k)\u001B[0m\n\u001B[1;32m    145\u001B[0m urlopen \u001B[38;5;241m=\u001B[39m urllib\u001B[38;5;241m.\u001B[39mrequest\u001B[38;5;241m.\u001B[39murlopen\n\u001B[1;32m    146\u001B[0m url \u001B[38;5;241m=\u001B[39m \u001B[38;5;124m\"\u001B[39m\u001B[38;5;132;01m{0}\u001B[39;00m\u001B[38;5;132;01m{1}\u001B[39;00m\u001B[38;5;124m,\u001B[39m\u001B[38;5;132;01m{2}\u001B[39;00m\u001B[38;5;124m\"\u001B[39m\u001B[38;5;241m.\u001B[39mformat(server, \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mmatchbook(),\n\u001B[1;32m    147\u001B[0m                           \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_directives(n, k))\n\u001B[0;32m--> 148\u001B[0m rawresp \u001B[38;5;241m=\u001B[39m \u001B[43murlopen\u001B[49m\u001B[43m(\u001B[49m\u001B[43murl\u001B[49m\u001B[43m)\u001B[49m\u001B[38;5;241m.\u001B[39mread()\u001B[38;5;241m.\u001B[39mdecode(\u001B[38;5;124m\"\u001B[39m\u001B[38;5;124mutf-8\u001B[39m\u001B[38;5;124m\"\u001B[39m)\n\u001B[1;32m    149\u001B[0m \u001B[38;5;28;01mtry\u001B[39;00m:\n\u001B[1;32m    150\u001B[0m     response \u001B[38;5;241m=\u001B[39m json\u001B[38;5;241m.\u001B[39mloads(rawresp)\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:216\u001B[0m, in \u001B[0;36murlopen\u001B[0;34m(url, data, timeout, cafile, capath, cadefault, context)\u001B[0m\n\u001B[1;32m    214\u001B[0m \u001B[38;5;28;01melse\u001B[39;00m:\n\u001B[1;32m    215\u001B[0m     opener \u001B[38;5;241m=\u001B[39m _opener\n\u001B[0;32m--> 216\u001B[0m \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[43mopener\u001B[49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mopen\u001B[49m\u001B[43m(\u001B[49m\u001B[43murl\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mdata\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mtimeout\u001B[49m\u001B[43m)\u001B[49m\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:525\u001B[0m, in \u001B[0;36mOpenerDirector.open\u001B[0;34m(self, fullurl, data, timeout)\u001B[0m\n\u001B[1;32m    523\u001B[0m \u001B[38;5;28;01mfor\u001B[39;00m processor \u001B[38;5;129;01min\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mprocess_response\u001B[38;5;241m.\u001B[39mget(protocol, []):\n\u001B[1;32m    524\u001B[0m     meth \u001B[38;5;241m=\u001B[39m \u001B[38;5;28mgetattr\u001B[39m(processor, meth_name)\n\u001B[0;32m--> 525\u001B[0m     response \u001B[38;5;241m=\u001B[39m \u001B[43mmeth\u001B[49m\u001B[43m(\u001B[49m\u001B[43mreq\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mresponse\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    527\u001B[0m \u001B[38;5;28;01mreturn\u001B[39;00m response\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:634\u001B[0m, in \u001B[0;36mHTTPErrorProcessor.http_response\u001B[0;34m(self, request, response)\u001B[0m\n\u001B[1;32m    631\u001B[0m \u001B[38;5;66;03m# According to RFC 2616, \"2xx\" code indicates that the client's\u001B[39;00m\n\u001B[1;32m    632\u001B[0m \u001B[38;5;66;03m# request was successfully received, understood, and accepted.\u001B[39;00m\n\u001B[1;32m    633\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;129;01mnot\u001B[39;00m (\u001B[38;5;241m200\u001B[39m \u001B[38;5;241m<\u001B[39m\u001B[38;5;241m=\u001B[39m code \u001B[38;5;241m<\u001B[39m \u001B[38;5;241m300\u001B[39m):\n\u001B[0;32m--> 634\u001B[0m     response \u001B[38;5;241m=\u001B[39m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mparent\u001B[49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43merror\u001B[49m\u001B[43m(\u001B[49m\n\u001B[1;32m    635\u001B[0m \u001B[43m        \u001B[49m\u001B[38;5;124;43m'\u001B[39;49m\u001B[38;5;124;43mhttp\u001B[39;49m\u001B[38;5;124;43m'\u001B[39;49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mrequest\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mresponse\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mcode\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mmsg\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mhdrs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    637\u001B[0m \u001B[38;5;28;01mreturn\u001B[39;00m response\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:563\u001B[0m, in \u001B[0;36mOpenerDirector.error\u001B[0;34m(self, proto, *args)\u001B[0m\n\u001B[1;32m    561\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m http_err:\n\u001B[1;32m    562\u001B[0m     args \u001B[38;5;241m=\u001B[39m (\u001B[38;5;28mdict\u001B[39m, \u001B[38;5;124m'\u001B[39m\u001B[38;5;124mdefault\u001B[39m\u001B[38;5;124m'\u001B[39m, \u001B[38;5;124m'\u001B[39m\u001B[38;5;124mhttp_error_default\u001B[39m\u001B[38;5;124m'\u001B[39m) \u001B[38;5;241m+\u001B[39m orig_args\n\u001B[0;32m--> 563\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_call_chain\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43margs\u001B[49m\u001B[43m)\u001B[49m\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:496\u001B[0m, in \u001B[0;36mOpenerDirector._call_chain\u001B[0;34m(self, chain, kind, meth_name, *args)\u001B[0m\n\u001B[1;32m    494\u001B[0m \u001B[38;5;28;01mfor\u001B[39;00m handler \u001B[38;5;129;01min\u001B[39;00m handlers:\n\u001B[1;32m    495\u001B[0m     func \u001B[38;5;241m=\u001B[39m \u001B[38;5;28mgetattr\u001B[39m(handler, meth_name)\n\u001B[0;32m--> 496\u001B[0m     result \u001B[38;5;241m=\u001B[39m \u001B[43mfunc\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43margs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    497\u001B[0m     \u001B[38;5;28;01mif\u001B[39;00m result \u001B[38;5;129;01mis\u001B[39;00m \u001B[38;5;129;01mnot\u001B[39;00m \u001B[38;5;28;01mNone\u001B[39;00m:\n\u001B[1;32m    498\u001B[0m         \u001B[38;5;28;01mreturn\u001B[39;00m result\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:643\u001B[0m, in \u001B[0;36mHTTPDefaultErrorHandler.http_error_default\u001B[0;34m(self, req, fp, code, msg, hdrs)\u001B[0m\n\u001B[1;32m    642\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21mhttp_error_default\u001B[39m(\u001B[38;5;28mself\u001B[39m, req, fp, code, msg, hdrs):\n\u001B[0;32m--> 643\u001B[0m     \u001B[38;5;28;01mraise\u001B[39;00m HTTPError(req\u001B[38;5;241m.\u001B[39mfull_url, code, msg, hdrs, fp)\n",
+      "\u001B[0;31mHTTPError\u001B[0m: HTTP Error 500: Internal Privoxy Error"
+     ]
+    }
+   ],
+   "source": [
+    "from aflow import *\n",
+    "\n",
+    "result = search(batch_size=20\n",
+    "        ).select(K.agl_thermal_conductivity_300K\n",
+    "        ).filter(K.Egap > 6).orderby(K.agl_thermal_conductivity_300K, True)\n",
+    "\n",
+    "# Now, you can just iterate over the results.\n",
+    "for entry in result:\n",
+    "    print(entry.Egap)"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "ExecuteTime": {
+     "start_time": "2024-04-29T06:07:42.235119Z"
+    }
+   },
+   "id": "initial_id"
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "outputs": [
+    {
+     "ename": "HTTPError",
+     "evalue": "HTTP Error 500: Internal Privoxy Error",
+     "output_type": "error",
+     "traceback": [
+      "\u001B[0;31m---------------------------------------------------------------------------\u001B[0m",
+      "\u001B[0;31mHTTPError\u001B[0m                                 Traceback (most recent call last)",
+      "Cell \u001B[0;32mIn[2], line 4\u001B[0m\n\u001B[1;32m      1\u001B[0m result \u001B[38;5;241m=\u001B[39m search(\n\u001B[1;32m      2\u001B[0m      )\u001B[38;5;241m.\u001B[39mfilter(K\u001B[38;5;241m.\u001B[39mspecies \u001B[38;5;241m==\u001B[39m \u001B[38;5;124m\"\u001B[39m\u001B[38;5;124mSi\u001B[39m\u001B[38;5;124m\"\u001B[39m\n\u001B[1;32m      3\u001B[0m      )\u001B[38;5;241m.\u001B[39morderby(K\u001B[38;5;241m.\u001B[39menergy_atom)\n\u001B[0;32m----> 4\u001B[0m a0 \u001B[38;5;241m=\u001B[39m \u001B[43mresult\u001B[49m\u001B[43m[\u001B[49m\u001B[38;5;241;43m0\u001B[39;49m\u001B[43m]\u001B[49m\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:114\u001B[0m, in \u001B[0;36mQuery.__getitem__\u001B[0;34m(self, seq)\u001B[0m\n\u001B[1;32m    110\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21m__getitem__\u001B[39m(\u001B[38;5;28mself\u001B[39m, seq):\n\u001B[1;32m    111\u001B[0m     \u001B[38;5;66;03m#We need to trigger the first request to make sure that the total\u001B[39;00m\n\u001B[1;32m    112\u001B[0m     \u001B[38;5;66;03m#number of entries is fixed on the parent object, and so that the\u001B[39;00m\n\u001B[1;32m    113\u001B[0m     \u001B[38;5;66;03m#pointers to the response caching are all the same.\u001B[39;00m\n\u001B[0;32m--> 114\u001B[0m     \u001B[38;5;28;01massert\u001B[39;00m \u001B[38;5;28;43mlen\u001B[39;49m\u001B[43m(\u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[43m)\u001B[49m \u001B[38;5;241m>\u001B[39m \u001B[38;5;241m0\u001B[39m\n\u001B[1;32m    116\u001B[0m     \u001B[38;5;28;01mfrom\u001B[39;00m \u001B[38;5;21;01mcopy\u001B[39;00m \u001B[38;5;28;01mimport\u001B[39;00m copy\n\u001B[1;32m    117\u001B[0m     result \u001B[38;5;241m=\u001B[39m copy(\u001B[38;5;28mself\u001B[39m)\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:108\u001B[0m, in \u001B[0;36mQuery.__len__\u001B[0;34m(self)\u001B[0m\n\u001B[1;32m    107\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21m__len__\u001B[39m(\u001B[38;5;28mself\u001B[39m):\n\u001B[0;32m--> 108\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mmax_N\u001B[49m\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:103\u001B[0m, in \u001B[0;36mQuery.max_N\u001B[0;34m(self)\u001B[0m\n\u001B[1;32m    100\u001B[0m \u001B[38;5;250m\u001B[39m\u001B[38;5;124;03m\"\"\"Returns the maximum integer index that will be reached by this query.\u001B[39;00m\n\u001B[1;32m    101\u001B[0m \u001B[38;5;124;03m\"\"\"\u001B[39;00m\n\u001B[1;32m    102\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_max_entry \u001B[38;5;129;01mis\u001B[39;00m \u001B[38;5;28;01mNone\u001B[39;00m:\n\u001B[0;32m--> 103\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mN\u001B[49m\n\u001B[1;32m    104\u001B[0m \u001B[38;5;28;01melse\u001B[39;00m:\n\u001B[1;32m    105\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_max_entry\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:95\u001B[0m, in \u001B[0;36mQuery.N\u001B[0;34m(self)\u001B[0m\n\u001B[1;32m     92\u001B[0m \u001B[38;5;129m@property\u001B[39m\n\u001B[1;32m     93\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21mN\u001B[39m(\u001B[38;5;28mself\u001B[39m):\n\u001B[1;32m     94\u001B[0m     \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_N \u001B[38;5;129;01mis\u001B[39;00m \u001B[38;5;28;01mNone\u001B[39;00m:\n\u001B[0;32m---> 95\u001B[0m         \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_request\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mn\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mk\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m     96\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_N\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/site-packages/aflow/control.py:148\u001B[0m, in \u001B[0;36mQuery._request\u001B[0;34m(self, n, k)\u001B[0m\n\u001B[1;32m    145\u001B[0m urlopen \u001B[38;5;241m=\u001B[39m urllib\u001B[38;5;241m.\u001B[39mrequest\u001B[38;5;241m.\u001B[39murlopen\n\u001B[1;32m    146\u001B[0m url \u001B[38;5;241m=\u001B[39m \u001B[38;5;124m\"\u001B[39m\u001B[38;5;132;01m{0}\u001B[39;00m\u001B[38;5;132;01m{1}\u001B[39;00m\u001B[38;5;124m,\u001B[39m\u001B[38;5;132;01m{2}\u001B[39;00m\u001B[38;5;124m\"\u001B[39m\u001B[38;5;241m.\u001B[39mformat(server, \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mmatchbook(),\n\u001B[1;32m    147\u001B[0m                           \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_directives(n, k))\n\u001B[0;32m--> 148\u001B[0m rawresp \u001B[38;5;241m=\u001B[39m \u001B[43murlopen\u001B[49m\u001B[43m(\u001B[49m\u001B[43murl\u001B[49m\u001B[43m)\u001B[49m\u001B[38;5;241m.\u001B[39mread()\u001B[38;5;241m.\u001B[39mdecode(\u001B[38;5;124m\"\u001B[39m\u001B[38;5;124mutf-8\u001B[39m\u001B[38;5;124m\"\u001B[39m)\n\u001B[1;32m    149\u001B[0m \u001B[38;5;28;01mtry\u001B[39;00m:\n\u001B[1;32m    150\u001B[0m     response \u001B[38;5;241m=\u001B[39m json\u001B[38;5;241m.\u001B[39mloads(rawresp)\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:216\u001B[0m, in \u001B[0;36murlopen\u001B[0;34m(url, data, timeout, cafile, capath, cadefault, context)\u001B[0m\n\u001B[1;32m    214\u001B[0m \u001B[38;5;28;01melse\u001B[39;00m:\n\u001B[1;32m    215\u001B[0m     opener \u001B[38;5;241m=\u001B[39m _opener\n\u001B[0;32m--> 216\u001B[0m \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[43mopener\u001B[49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mopen\u001B[49m\u001B[43m(\u001B[49m\u001B[43murl\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mdata\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mtimeout\u001B[49m\u001B[43m)\u001B[49m\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:525\u001B[0m, in \u001B[0;36mOpenerDirector.open\u001B[0;34m(self, fullurl, data, timeout)\u001B[0m\n\u001B[1;32m    523\u001B[0m \u001B[38;5;28;01mfor\u001B[39;00m processor \u001B[38;5;129;01min\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mprocess_response\u001B[38;5;241m.\u001B[39mget(protocol, []):\n\u001B[1;32m    524\u001B[0m     meth \u001B[38;5;241m=\u001B[39m \u001B[38;5;28mgetattr\u001B[39m(processor, meth_name)\n\u001B[0;32m--> 525\u001B[0m     response \u001B[38;5;241m=\u001B[39m \u001B[43mmeth\u001B[49m\u001B[43m(\u001B[49m\u001B[43mreq\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mresponse\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    527\u001B[0m \u001B[38;5;28;01mreturn\u001B[39;00m response\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:634\u001B[0m, in \u001B[0;36mHTTPErrorProcessor.http_response\u001B[0;34m(self, request, response)\u001B[0m\n\u001B[1;32m    631\u001B[0m \u001B[38;5;66;03m# According to RFC 2616, \"2xx\" code indicates that the client's\u001B[39;00m\n\u001B[1;32m    632\u001B[0m \u001B[38;5;66;03m# request was successfully received, understood, and accepted.\u001B[39;00m\n\u001B[1;32m    633\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;129;01mnot\u001B[39;00m (\u001B[38;5;241m200\u001B[39m \u001B[38;5;241m<\u001B[39m\u001B[38;5;241m=\u001B[39m code \u001B[38;5;241m<\u001B[39m \u001B[38;5;241m300\u001B[39m):\n\u001B[0;32m--> 634\u001B[0m     response \u001B[38;5;241m=\u001B[39m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mparent\u001B[49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43merror\u001B[49m\u001B[43m(\u001B[49m\n\u001B[1;32m    635\u001B[0m \u001B[43m        \u001B[49m\u001B[38;5;124;43m'\u001B[39;49m\u001B[38;5;124;43mhttp\u001B[39;49m\u001B[38;5;124;43m'\u001B[39;49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mrequest\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mresponse\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mcode\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mmsg\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mhdrs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    637\u001B[0m \u001B[38;5;28;01mreturn\u001B[39;00m response\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:563\u001B[0m, in \u001B[0;36mOpenerDirector.error\u001B[0;34m(self, proto, *args)\u001B[0m\n\u001B[1;32m    561\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m http_err:\n\u001B[1;32m    562\u001B[0m     args \u001B[38;5;241m=\u001B[39m (\u001B[38;5;28mdict\u001B[39m, \u001B[38;5;124m'\u001B[39m\u001B[38;5;124mdefault\u001B[39m\u001B[38;5;124m'\u001B[39m, \u001B[38;5;124m'\u001B[39m\u001B[38;5;124mhttp_error_default\u001B[39m\u001B[38;5;124m'\u001B[39m) \u001B[38;5;241m+\u001B[39m orig_args\n\u001B[0;32m--> 563\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_call_chain\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43margs\u001B[49m\u001B[43m)\u001B[49m\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:496\u001B[0m, in \u001B[0;36mOpenerDirector._call_chain\u001B[0;34m(self, chain, kind, meth_name, *args)\u001B[0m\n\u001B[1;32m    494\u001B[0m \u001B[38;5;28;01mfor\u001B[39;00m handler \u001B[38;5;129;01min\u001B[39;00m handlers:\n\u001B[1;32m    495\u001B[0m     func \u001B[38;5;241m=\u001B[39m \u001B[38;5;28mgetattr\u001B[39m(handler, meth_name)\n\u001B[0;32m--> 496\u001B[0m     result \u001B[38;5;241m=\u001B[39m \u001B[43mfunc\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43margs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    497\u001B[0m     \u001B[38;5;28;01mif\u001B[39;00m result \u001B[38;5;129;01mis\u001B[39;00m \u001B[38;5;129;01mnot\u001B[39;00m \u001B[38;5;28;01mNone\u001B[39;00m:\n\u001B[1;32m    498\u001B[0m         \u001B[38;5;28;01mreturn\u001B[39;00m result\n",
+      "File \u001B[0;32m~/opt/anaconda3/envs/baseenv/lib/python3.10/urllib/request.py:643\u001B[0m, in \u001B[0;36mHTTPDefaultErrorHandler.http_error_default\u001B[0;34m(self, req, fp, code, msg, hdrs)\u001B[0m\n\u001B[1;32m    642\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21mhttp_error_default\u001B[39m(\u001B[38;5;28mself\u001B[39m, req, fp, code, msg, hdrs):\n\u001B[0;32m--> 643\u001B[0m     \u001B[38;5;28;01mraise\u001B[39;00m HTTPError(req\u001B[38;5;241m.\u001B[39mfull_url, code, msg, hdrs, fp)\n",
+      "\u001B[0;31mHTTPError\u001B[0m: HTTP Error 500: Internal Privoxy Error"
+     ]
+    }
+   ],
+   "source": [
+    "result = search(\n",
+    "     ).filter(K.species == \"Si\"\n",
+    "     ).orderby(K.energy_atom)\n",
+    "a0 = result[0]"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "ExecuteTime": {
+     "end_time": "2024-04-29T06:16:04.441999Z",
+     "start_time": "2024-04-29T06:15:04.321848Z"
+    }
+   },
+   "id": "b7953e6410f25a6d"
+  },
+  {
+   "cell_type": "markdown",
+   "source": [
+    "# the example use case get HTTPError: HTTP Error 500: Internal Privoxy Error\n",
+    "and web broswer also error,see aflow-500.jpg"
+   ],
+   "metadata": {
+    "collapsed": false
+   },
+   "id": "d24691be82e78661"
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

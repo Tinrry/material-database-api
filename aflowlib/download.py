@@ -15,9 +15,6 @@ def get_link(base_url, local_file):
     link_list = []
     for link in soup.find_all('a')[1:]:
         link_list.append(''.join([base_url.strip(), link.get('href').strip(), '/']))
-        # debug
-        if len(link_list) == 5:
-            break
 
     link_size = len(link_list)
     # save link_list
@@ -40,18 +37,21 @@ def subtrat_href(download_file='2-AgAl.html', save_file='3-AgAl.html'):
     return save_file
 
 
+import os
 
 if __name__ == '__main__':
+    if os.path.exists('dataset') is False:
+        os.mkdir('dataset')
     # download html file from csv file link, 命名为2-AgAl.html为例
     with open('aflowlib-lib2-1706.csv', 'r') as urls_file:
         for material_link in urls_file:
             # https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgAl/
-            save_name = f"2-{material_link.split('/')[-2]}.html"        # 2-AgAl.html
+            save_name = f"dataset/2-{material_link.split('/')[-2]}.html"        # 2-AgAl.html
             # wait for download
             subprocess.call(f"curl -o {save_name} {material_link}", shell=True)
             # ToDo use shell command substrat a line containing 'aflowlib_entries' and '<br>' to a new file, e.g. AgAl.html
             download_file = save_name
-            save_file = f"3-{material_link.split('/')[-2]}.html"
+            save_file = f"dataset/3-{material_link.split('/')[-2]}.html"
             subtrat_href(download_file, save_file)
             # now we can get_link from 3-AgAl.html and save to 3-AgAl-xxx.csv
             base_url = material_link
@@ -60,9 +60,8 @@ if __name__ == '__main__':
             with open(csv_file, 'r') as subset_urls:
                 # https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/AgAl/./1/
                 for item in subset_urls:
-                    save_item = f"{item.split('/')[-4]}-{item.split('/')[-2]}.html"
+                    save_item = f"dataset/{item.split('/')[-4]}-{item.split('/')[-2]}.html"
+                    # skip if file already exists
+                    if os.path.exists(save_item):
+                        continue
                     subprocess.call(f"curl -o {save_item} {item}", shell=True)
-                    # for debug
-                    break
-            break
-

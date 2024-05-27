@@ -22,11 +22,18 @@ https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/
 
 获取该网站数据集的方法：
 1. 从一级目录  https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/  获取所有材料的元素，保存在aflowlib-lib2-1706.csv.
-2. 从第一步获取1706个二级目录的链接,记录每个元素的所有具体材料网页的链接，比如AgAl-1057.csv, 表示元素比如AgAl有1057个材料页面。
-3. 下载材料页面，比如AgAl-1057.csv，有1057个html网页。其中一个页面示例为：aflowlib-AgAl-1
+2. 从第一步获取1706个二级目录的链接,记录每个元素的所有具体材料网页的链接，比如3-AgAl-1057.csv, 表示元素比如AgAl有1057个材料页面。
+3. 下载材料页面，比如3-AgAl-1057.csv，有1057个html网页。其中一个页面示例为：AgAl-1.html
+   
 从这里我们可以算出，一个页面26k * 1000000 = 26G 文件大小
 
 相关文件在文件夹aflowlib中，完整数据集在dataset中（local）
 
+## 备注
 url = https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgAl/
 末尾必须要有/
+
+
+## 拓展
+mpi 并行等等，后续有需要再考虑。
+断点续传，后续考虑。

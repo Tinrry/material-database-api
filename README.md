@@ -27,3 +27,6 @@ https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/
 从这里我们可以算出，一个页面26k * 1000000 = 26G 文件大小
 
 相关文件在文件夹aflowlib中，完整数据集在dataset中（local）
+
+url = https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgAl/
+末尾必须要有/

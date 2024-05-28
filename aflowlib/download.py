@@ -44,7 +44,7 @@ if __name__ == '__main__':
         os.mkdir('dataset')
     # download html file from csv file link, 命名为2-AgAl.html为例
     with open('aflowlib-lib2-1706.csv', 'r') as urls_file:
-        for material_link in urls_file:
+        for material_link in urls_file[31:]:            # 因为AgO中断了，所以手动从这里继续下载
             # https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgAl/
             save_name = f"dataset/2-{material_link.split('/')[-2]}.html"        # 2-AgAl.html
             # wait for download

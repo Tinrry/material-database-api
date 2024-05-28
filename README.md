@@ -35,5 +35,27 @@ url = https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgAl/
 
 
 ## 拓展
-mpi 并行等等，后续有需要再考虑。
-断点续传，后续考虑。
+1. mpi 并行等等，后续有需要再考虑。
+2. 断点续传，后续考虑。
+
+## 特殊样例
+第32行：
+https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgO/
+
+![alt text](image.png)
+
+该元素就一个材料页面：
+https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/AgO/A2B_cP6_224_b_a.AB/
+
+解决方法：
+
+1. 手动下载，存放在 aflowlib/except-sample/
+2. 将这个条目从aflowlib-lib2-1706.csv中删除
+3. download.py，从中断的url继续下载继续下载。
+   ```
+   for material_link in urls_file[31:]:    
+      pass   
+   ```
+
+## ToDo
+程序使用try 提高鲁棒性

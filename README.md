@@ -53,7 +53,7 @@ https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/AgO/A2B_cP6_224_b_a.AB/
 2. 将这个条目从aflowlib-lib2-1706.csv中删除
 3. download.py，从中断的url继续下载继续下载。
    ```
-   for material_link in urls_file[31:]:    
+   for material_link in urls_file.readlines()[31:]:            # 因为AgO中断了，所以手动从这里继续下载    
       pass   
    ```
 

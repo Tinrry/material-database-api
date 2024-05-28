@@ -1,23 +1,15 @@
 ## information
-1. OQMD--OK, download by yang, need mysql service .
-2. NOMAD
-   [学习链接](https://www.nomad-coe.eu/events2/course-on-big-data-and-artificial-intelligence/exercise-1)
-
-   是AFLOW的子集
-   
-   使用方法见nomad.ipynb
-   ```
-   ```
-   里面有大量的workflow配置文件，不干净。
-
-查看一下paper rank上面关于上面数据库的研究进展
+## OQMD
+- OK, download by yang, need mysql service .
 
 ## AFLOW
 DISCLAIMER
+
 The data included within the aflow.org repository is free for scientific, academic and non-commercial purposes. Any other use is prohibited.
 AFLOW and AFLOWLIB.ORG come with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.
 
-整体的数据集
+整体的数据集索引
+
 https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/
 
 获取该网站数据集的方法：
@@ -31,6 +23,7 @@ https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/
 
 ## 备注
 url = https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgAl/
+
 末尾必须要有/
 
 
@@ -58,4 +51,19 @@ https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/AgO/A2B_cP6_224_b_a.AB/
    ```
 
 ## ToDo
-程序使用try 提高鲁棒性
+
+1. 定时查看程序是否中断了。
+
+## NOMAD
+   [学习链接](https://www.nomad-coe.eu/events2/course-on-big-data-and-artificial-intelligence/exercise-1)
+
+   是AFLOW的子集
+   
+   使用方法见nomad.ipynb
+
+   数据未下载
+
+## materialproject
+
+   ToDo
+

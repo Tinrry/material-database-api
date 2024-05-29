@@ -44,6 +44,11 @@ https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/AgO/A2B_cP6_224_b_a.AB/
 https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AlN/
 ![alt text](image-1.png)
 
+### 第86行
+
+https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AlO/
+![alt text](image-2.png)
+
 解决方法：
 
 1. 手动下载，存放在 aflowlib/except-sample/

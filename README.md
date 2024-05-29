@@ -32,13 +32,17 @@ url = https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgAl/
 2. 断点续传，后续考虑。
 
 ## 特殊样例
-第32行：
+### 第32行：
 https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgO/
 
 ![alt text](image.png)
 
 该元素就一个材料页面：
 https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/AgO/A2B_cP6_224_b_a.AB/
+
+### 第83行
+https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AlN/
+![alt text](image-1.png)
 
 解决方法：
 

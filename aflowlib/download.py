@@ -46,7 +46,7 @@ if __name__ == '__main__':
     # download html file from csv file link, 命名为2-AgAl.html为例
     except_files = []
     with open('aflowlib-lib2-1706.csv', 'r') as urls_file:
-        for material_link in urls_file.readlines()[85:]:            # 因为AgO中断了，所以手动从这里继续下载
+        for material_link in urls_file.readlines()[509:]:            # 因为AgO中断了，所以手动从这里继续下载
             # https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AgAl/
             download_file = f"dataset/2-{material_link.split('/')[-2]}.html"        # 2-AgAl.html
          

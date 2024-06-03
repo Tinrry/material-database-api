@@ -76,3 +76,12 @@ https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./AlO/
 
    ToDo
 
+
+## 备注
+1. 下载次数过多， 会暂时停止访问。
+![alt text](image-3.png)
+
+经过查找发现，从第510行开始就出现次数超过限制的页面，所以下次从这个地方下载，并且修改此类bug。
+https://aflowlib.duke.edu/AFLOWDATA/LIB2_WEB/./CSr_sv/
+
+修改bug， ToDo：如果出现该页面，sleep 30 min， 继续下载。
